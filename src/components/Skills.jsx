@@ -47,9 +47,11 @@ const SkillItem = ({src, width, height, title, index}) => {
 }
 
 const Skills = () => {
-    const [dimension, setDimension] = useState(window.innerWidth >= 639 ? 50 : 30);
+    const [dimension, setDimension] = useState(50);
     const updateDimension = () => {
-        setDimension(window.innerWidth >= 639 ? 50 : 30);
+        if (typeof window !== "undefined") {
+            setDimension(window.innerWidth >= 639 ? 50 : 30);
+        };
     };
     useEffect(() => {
         updateDimension();

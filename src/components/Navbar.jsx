@@ -82,12 +82,14 @@ const Navbar = () => {
                     <MobileLink href="/" title="Home" className="" toggle={handleClick} />
                     <MobileLink href="/about" title="About" className="" toggle={handleClick} />
                     <MobileLink href="/projects" title="Projects" className="" toggle={handleClick} />
-                    <Link href="https://github.com/yhanyi" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
-                        <GithubIcon width={25} height={25} />
-                    </Link>
-                    <Link href="https://www.linkedin.com/in/yeoh-han-yi/" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
-                        <LinkedInIcon width={25} height={25} />
-                    </Link>
+                    <div className="w-1/2 flex justify-between">
+                        <Link href="https://github.com/yhanyi" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                            <GithubIcon width={25} height={25} />
+                        </Link>
+                        <Link href="https://www.linkedin.com/in/yeoh-han-yi/" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                            <LinkedInIcon width={25} height={25} />
+                        </Link>
+                    </div>
                 </motion.nav>
                 : null
             }

@@ -28,16 +28,16 @@ const ProjectItem = ({title, summary, image, demolink, githublink}) => {
             </Link>
             <div className="w-full flex flex-col items-start justify-between mt-4">
                 <Link href={demolink} target="_blank" className="hover:underline underline-offset-2">
-                    <h2 className="my-2 w-full text-left text-3xl font-bold text-dark dark:text-light">{title}</h2>
+                    <h2 className="my-2 w-full text-left text-3xl font-bold text-dark dark:text-light sm:text-base">{title}</h2>
                 </Link>
-                <p className="my-2 font-medium text-dark dark:text-light">{summary}</p>
+                <p className="my-2 font-medium text-dark dark:text-light sm:text-xs">{summary}</p>
                 <div className="w-full mt-2 flex items-center justify-between">
-                    <Link href={demolink} target="_blank" className="rounded-lg bg-dark text-light dark:bg-light dark:text-dark p-2 text-lg font-semibold hover:scale-105 duration-200">
+                    <Link href={demolink} target="_blank" className="rounded-lg bg-dark text-light dark:bg-light dark:text-dark p-2 text-lg font-semibold hover:scale-105 duration-200 sm:text-sm">
                         Demo
                     </Link>
                     
                     <Link href={githublink} target="_blank" className="flex items-center justify-center bg-dark text-light dark:bg-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
-                        <GithubIcon width={30} height={30} />
+                        <GithubIcon width={20} height={20} />
                     </Link>
                 </div>
             </div>
@@ -65,8 +65,8 @@ const projects = () => {
                         title="Portfolio Website V2"
                         summary="My second attempt at building a portfolio website, this time using the Next.js React framework and Tailwind with more focus on responsiveness. A few extra packages were used such as framer motion and it served as an introduction to React hooks."
                         image={image5}
-                        demolink="https://www.google.com"
-                        githublink="https://www.google.com"
+                        demolink="https://yeohhanyi.vercel.app/"
+                        githublink="https://github.com/yhanyi/react-portfolio-v1"
                         /></div>
                         
                         <div className="col-span-6 lg:col-span-12"><ProjectItem 

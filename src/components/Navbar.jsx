@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { SunIcon, MoonIcon, GithubIcon, LinkedInIcon } from "./ExtraIcons"
 import useThemeSwitcher from './hooks/useThemeSwitcher'
 import { motion } from 'framer-motion'
-import { MdOutlineWavingHand } from "react-icons/md";
+import { MdOutlineWavingHand } from "react-icons/md"
 
 const CustomLink = ({href, title, className=""}) => {
     const router = useRouter();
@@ -60,8 +60,8 @@ const Navbar = () => {
     }, [])
 
   return (
-    <header className="w-full px-32 py-6 font-medium flex items-center justify-between dark:text-light relative z-10 lg:px-16 md:px-12 sm:px-8">
-        <Link href="/" className="text-2xl text-dark dark:text-light flex items-center">
+    <header className="w-full px-32 py-6 font-medium flex items-center justify-between dark:text-light relative z-10 lg:px-16 md:px-8 md:py-8 sm:px-2 sm:py-2">
+        <Link href="/" className="text-2xl text-dark dark:text-light flex items-center sm:text-sm">
             <MdOutlineWavingHand className="w-5 h-5 mr-3 hover:-rotate-45 duration-200" /> Yeoh Han Yi
         </Link>
         <div className="flex items-center justify-center">
@@ -76,22 +76,28 @@ const Navbar = () => {
                 <motion.nav ref={dropdownRef}
                 initial={{scale:0, opacity:0, x:"-50%", y:"-50%"}}
                 animate={{scale:1, opacity:1}}
-                className={`min-w-[40vw] flex flex-col items-center justify-center flex-wrap fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 py-32
+                className={`min-w-[40vw] flex flex-col items-center justify-center flex-wrap fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 py-16 gap-1
                 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md
                 ${isOpen ? `opacity-100` : `lg:hidden`}`} >
                     <MobileLink href="/" title="Home" className="" toggle={handleClick} />
                     <MobileLink href="/about" title="About" className="" toggle={handleClick} />
                     <MobileLink href="/projects" title="Projects" className="" toggle={handleClick} />
+                    <Link href="https://github.com/yhanyi" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                        <GithubIcon width={25} height={25} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/yeoh-han-yi/" target="_blank" className="flex items-center justify-center text-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                        <LinkedInIcon width={25} height={25} />
+                    </Link>
                 </motion.nav>
                 : null
             }
             
             <nav className="flex items-center justify-center flex-wrap gap-3">
-                <Link href="https://github.com/yhanyi" target="_blank" className="flex items-center justify-center bg-dark text-light dark:bg-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                <Link href="https://github.com/yhanyi" target="_blank" className="lg:hidden flex items-center justify-center bg-dark text-light dark:bg-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
                     <GithubIcon width={25} height={25} />
                 </Link>
 
-                <Link href="https://www.linkedin.com/in/yeoh-han-yi/" target="_blank" className="flex items-center justify-center bg-dark text-light dark:bg-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
+                <Link href="https://www.linkedin.com/in/yeoh-han-yi/" target="_blank" className="lg:hidden flex items-center justify-center bg-dark text-light dark:bg-light dark:text-dark rounded-xl p-1 hover:scale-105 duration-200">
                     <LinkedInIcon width={25} height={25} />
                 </Link>
 

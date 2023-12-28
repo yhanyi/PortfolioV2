@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
@@ -14,7 +14,7 @@ const SkillItem = ({src, width, height, title, index}) => {
         visible: {opacity:1}
     }
 
-    const animationDelay = 0.3;
+    const animationDelay = 0.1;
     
     return (
         <motion.div
@@ -47,6 +47,22 @@ const SkillItem = ({src, width, height, title, index}) => {
 }
 
 const Skills = () => {
+    const [dimension, setDimension] = useState(window.innerWidth >= 639 ? 50 : 30);
+    const updateDimension = () => {
+        setDimension(window.innerWidth >= 639 ? 50 : 30);
+    };
+    useEffect(() => {
+        updateDimension();
+        const handleResize = () => {
+            updateDimension();
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.addEventListener("resize", handleResize);
+        };
+    }, [dimension]);
+
+
   return (
     <>
         {/* <h2 className="font-bold text-6xl mt-64 w-full text-center">Tools and Technologies</h2> */}
@@ -60,8 +76,8 @@ const Skills = () => {
                     key={index}
                     src={item.image}
                     title={item.title}
-                    width={item.width}
-                    height={item.height}
+                    width={dimension}
+                    height={dimension}
                     index={index}
                     />
                 ))}

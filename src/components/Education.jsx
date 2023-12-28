@@ -10,17 +10,20 @@ const Details = ({type, time, place, scores, infos}) => {
     return (
     <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col justify-between">
         <ListIcon reference={ref} />
-        <motion.div initial={{y:50}} whileInView={{y:0}} transition={{duration:0.5, type:"spring"}}>
-            <h3 className="font-bold text-2xl">{type}</h3>
-            <p className="mt-4 font-medium text-dark/75 dark:text-light/75">
+        <motion.div
+        initial={{y:50}}
+        whileInView={{y:0}}
+        transition={{duration:0.5, type:"spring"}}>
+            <h3 className="font-bold text-2xl sm:text-base">{type}</h3>
+            <p className="mt-4 font-medium text-dark/75 dark:text-light/75 sm:text-xs">
                 {time} | {place}
             </p>
-            <p className="mt-4 font-medium text-dark/75 dark:text-light/75">
+            <p className="mt-4 font-medium text-dark/75 dark:text-light/75 sm:text-xs">
                 {scores}
             </p>
             <div>
             {infos.map((info, index) => (
-                <p key={index} className="mt-4 font-medium w-full">{info}</p>
+                <p key={index} className="mt-4 font-medium w-full text-dark dark:text-light sm:text-xs sm:mt-2">{info}</p>
             ))}
             </div>
 
@@ -39,12 +42,12 @@ const Education = () => {
     )
 
     return (
-    <>
+    <div className="my-64">
         <AnimatedText text="Education" className="mt-64 mb-16 sm:mb-8" />
-        <div ref={ref} className="w-[75%] mx-auto relative">
+        <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
             <motion.div 
             style={{scaleY: scrollYProgress}}
-            className="absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top" />
+            className="absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top md:w-[2px] md:left-[30px] xs:left-[20px]" />
             <ul>
                 <Details
                 type="Bachelor of Computing in Computer Science (2nd Major Statistics)"
@@ -74,7 +77,7 @@ const Education = () => {
                 />
             </ul>
         </div>
-    </>
+    </div>
   )
 }
 
